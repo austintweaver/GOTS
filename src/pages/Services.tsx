@@ -89,7 +89,7 @@ const Services = () => {
                   Representation Reinvented
                 </p>
                 {/* Four Pillars moved here */}
-                <div className="grid grid-cols-4 gap-8 mb-8">
+                <div className="grid grid-cols-4 gap-4 mb-8 overflow-x-auto px-2" style={{ minWidth: 600 }}>
                   {gamePillars.map((pillar, index) => <div key={pillar.title} className="text-center group">
                       <div className="relative mb-6">
                         <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300 border-2 border-brand-red/10 group-hover:border-brand-red/30">
@@ -97,10 +97,10 @@ const Services = () => {
                         </div>
                         {index < gamePillars.length - 1 && <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-brand-red/30 to-transparent transform -translate-y-1/2"></div>}
                       </div>
-                      <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">
+                      <h3 className="text-base sm:text-xl font-heading font-bold text-gray-900 mb-2 break-words">
                         {pillar.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed break-words">
                         {pillar.description}
                       </p>
                     </div>)}
