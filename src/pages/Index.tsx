@@ -1,17 +1,13 @@
-
 import { ChevronDown, Scale, Users, TrendingUp, Target, Rocket, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
 const Index = () => {
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({
       behavior: "smooth"
     });
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" style={{
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
@@ -22,12 +18,11 @@ const Index = () => {
               <span className="text-brand-red block text-5xl">Win</span>
               <span className="text-white block text-4xl">Where It Matters Most</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-              At Scoreboard Strategy, we represent more than just clients — we represent competitors, creators, builders, and visionaries. Whether you're an athlete, coach, entertainer, entrepreneur, or executive, our mission is simple: to help you win.
-            </p>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              We combine the precision of legal counsel, the foresight of business strategy, and the execution of seasoned operators — all under one roof. No hourly rates. No commissions. Just outcomes.
-            </p>
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">At Scoreboard Strategy, we represent more than just clients 
+ We represent competitors, creators, builders, and visionaries. Whether you're an athlete, coach, entertainer, entrepreneur, or executive, our mission is simple: 
+to help you win.</p>
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">We combine precision, foresight, and the execution of seasoned operators, all under one roof. 
+No hourly rates. No commissions. Just outcomes.</p>
             <Link to="/services">
               <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
                 Explore Our Services
@@ -186,8 +181,6 @@ const Index = () => {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
