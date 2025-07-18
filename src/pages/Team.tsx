@@ -8,12 +8,12 @@ const Team = () => {
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
 
   const teamMember = {
-    name: "Sarah Mitchell",
-    title: "Managing Partner & Sports Attorney",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    bio: "Sarah brings over 15 years of experience in sports law and athlete representation. She has negotiated multi-million dollar contracts for professional athletes across multiple sports leagues.",
-    email: "sarah@scoreboardstrategy.com",
-    linkedin: "#"
+    name: "Austin Weaver",
+    title: "Founder & Principal",
+    image: "/assets/weaver-headshot.jpeg",
+    bio: "Austin is the Founder and Principal of Scoreboard Strategy. He brings years of experience in business strategy, law, operations, and leadership — all driven by a passion for helping athletes, entertainers, and organizations reach their full potential. His mission is to deliver strategic support that empowers clients to win on and off the field.",
+    email: "contact@scoreboardstrategy.com",
+    linkedin: "https://www.linkedin.com/in/austintweaver/"
   };
 
   return (
@@ -24,9 +24,6 @@ const Team = () => {
           <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
             Meet Our <span className="text-brand-red">Team</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Experienced professionals dedicated to helping you win where it matters most
-          </p>
         </div>
       </section>
 
@@ -134,7 +131,7 @@ const Team = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-10 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8">
             Ready to <span className="text-brand-red">Win</span><br />

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,22 +24,34 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    });
+    emailjs.sendForm(
+      'service_k6un96o',
+      'template_rmq28n5',
+      e.target as HTMLFormElement,
+      '2bgqDx6Ydu-eaI_19'
+    ).then(
+      (result) => {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you within 24 hours."
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+      },
+      (error) => {
+        toast({
+          title: "Error",
+          description: "There was a problem sending your message. Please try again."
+        });
+      }
+    );
   };
 
   // Calendly script loader

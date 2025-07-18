@@ -66,23 +66,19 @@ const Services = () => {
             Our <span className="text-brand-red">Services</span>
           </h1>
         </div>
-        {/* Toggle Switch Section moved here */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 mb-4">
-          <div className="flex items-center justify-center space-x-6">
-            <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>
-              The GAME Plan
-            </Label>
-            <Switch id="service-toggle" checked={!showGamePlan} onCheckedChange={checked => setShowGamePlan(!checked)} className="data-[state=checked]:bg-brand-red" />
-            <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${!showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>
-              Business Services
-            </Label>
-          </div>
-        </div>
       </section>
 
       {/* Content Sections */}
       <section className="py-10">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+          {/* Toggle Switch Section restored here */}
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 mb-4">
+            <div className="flex items-center justify-center space-x-6">
+              <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>The GAME Plan</Label>
+              <Switch id="service-toggle" checked={!showGamePlan} onCheckedChange={checked => setShowGamePlan(!checked)} className="data-[state=checked]:bg-brand-red" />
+              <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${!showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>Business Services</Label>
+            </div>
+          </div>
           {showGamePlan ? (/* GAME Plan Panel */
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
               <div className="text-center mb-12">
@@ -132,11 +128,8 @@ const Services = () => {
               </div>
             </div>) : (/* Business Services Panel */
         <div>
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-red/10 rounded-full mb-4">
-                  <Building className="h-8 w-8 text-brand-red" />
-                </div>
-                <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4">
+              <div className="text-center mt-12 mb-12">
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
                   Business <span className="text-brand-red">Services</span>
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -166,7 +159,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-10 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8">
             Ready to <span className="text-brand-red">Win</span><br />
