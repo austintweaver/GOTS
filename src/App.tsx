@@ -18,6 +18,7 @@ import TermsOfService from "./pages/TermsOfService";
 declare global {
   interface Window {
     Calendly?: any;
+    clarity?: any;
   }
 }
 
@@ -34,20 +35,29 @@ const CookieBanner = () => {
   const handleConsent = (accepted: boolean) => {
     localStorage.setItem('cookieConsent', accepted ? 'accepted' : 'declined');
     setVisible(false);
-    // Optionally initialize analytics tools here if accepted
+    if (accepted) {
+      // Inject Microsoft Clarity script
+      if (!window.clarity) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = 'https://www.clarity.ms/tag/scre5aixuv';
+        document.head.appendChild(script);
+      }
+    }
   };
 
   if (!visible) return null;
 
   return (
-    <div id="cookie-banner" style={{ display: 'block', position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#f8f8f8', color: '#333', padding: '15px 20px', boxShadow: '0 -2px 5px rgba(0,0,0,0.1)', zIndex: 1000, fontFamily: 'Arial, sans-serif' }}>
+    <div id="cookie-banner" style={{ display: 'block', position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#18181b', color: '#fff', padding: '15px 20px', boxShadow: '0 -2px 5px rgba(0,0,0,0.2)', zIndex: 1000, fontFamily: 'Montserrat, Arial, sans-serif' }}>
       <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
         <p style={{ margin: 0, fontSize: 14 }}>
-          We use cookies and tracking technologies to enhance your browsing experience, analyze traffic, and improve our services. <a href="/privacy-policy" style={{ color: '#0066cc' }}>Learn more</a>.
+          We use cookies and tracking technologies to enhance your browsing experience, analyze traffic, and improve our services. <a href="/privacy-policy" style={{ color: '#DC2626', fontWeight: 600, textDecoration: 'underline', marginLeft: 8 }}>Learn more</a>.
         </p>
         <div style={{ marginTop: 10 }}>
-          <button onClick={() => handleConsent(true)} style={{ marginRight: 10, backgroundColor: '#0066cc', color: '#fff', border: 'none', padding: '8px 14px', cursor: 'pointer', borderRadius: 4 }}>Accept</button>
-          <button onClick={() => handleConsent(false)} style={{ backgroundColor: '#ccc', color: '#333', border: 'none', padding: '8px 14px', cursor: 'pointer', borderRadius: 4 }}>Decline</button>
+          <button onClick={() => handleConsent(true)} style={{ marginRight: 10, backgroundColor: '#DC2626', color: '#fff', border: 'none', padding: '8px 18px', cursor: 'pointer', borderRadius: 6, fontWeight: 700 }}>Accept</button>
+          <button onClick={() => handleConsent(false)} style={{ backgroundColor: '#333', color: '#fff', border: 'none', padding: '8px 18px', cursor: 'pointer', borderRadius: 6, fontWeight: 700 }}>Decline</button>
         </div>
       </div>
     </div>
