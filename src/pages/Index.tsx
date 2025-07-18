@@ -34,7 +34,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="bg-white py-[45px]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-8">
@@ -46,7 +46,7 @@ const Index = () => {
       </section>
 
       {/* Three Pillars Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 mx-0 py-[45px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
