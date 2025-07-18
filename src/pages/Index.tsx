@@ -76,7 +76,7 @@ const Index = () => {
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center bg-black bg-cover bg-center bg-fixed overflow-x-hidden"
+        className="relative h-screen flex items-center justify-center bg-black bg-cover bg-center bg-scroll overflow-x-hidden"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('/assets/scoreboardhome.jpg')`
         }}

@@ -65,12 +65,6 @@ const Navigation = () => {
               {navLinks.map(link => <Link key={link.path} to={link.path} className={`block px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-brand-red ${location.pathname === link.path ? "text-brand-red" : "text-gray-900"}`}>
                   {link.name}
                 </Link>)}
-              <div className="flex items-center space-x-2 px-3 py-2">
-                <Phone className="h-4 w-4 text-brand-red" />
-                <a href="tel:+1234567890" className="text-sm font-medium text-gray-900 hover:text-brand-red transition-colors duration-200">
-                  (123) 456-7890
-                </a>
-              </div>
             </div>
           </div>}
       </div>

@@ -72,8 +72,8 @@ const Services = () => {
       <section className="py-10">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           {/* Toggle Switch Section restored here */}
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 mb-4">
-            <div className="flex items-center justify-center space-x-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 mb-4 flex justify-center">
+            <div className="flex items-center space-x-6">
               <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>The GAME Plan</Label>
               <Switch id="service-toggle" checked={!showGamePlan} onCheckedChange={checked => setShowGamePlan(!checked)} className="data-[state=checked]:bg-brand-red" />
               <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${!showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>Business Services</Label>
@@ -89,7 +89,7 @@ const Services = () => {
                   Representation Reinvented
                 </p>
                 {/* Four Pillars moved here */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div className="grid grid-cols-4 gap-8 mb-8">
                   {gamePillars.map((pillar, index) => <div key={pillar.title} className="text-center group">
                       <div className="relative mb-6">
                         <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300 border-2 border-brand-red/10 group-hover:border-brand-red/30">
