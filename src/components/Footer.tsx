@@ -5,123 +5,40 @@ import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and Description */}
-          <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center mb-4">
-              <span className="text-2xl font-heading font-bold text-white">
-                Scoreboard{" "}
-                <span className="text-brand-red">Strategy</span>
-              </span>
-            </Link>
-            <p className="text-gray-400 mb-6 max-w-md">
-              Premier sports management, legal counsel, and business strategy services 
-              for athletes, coaches, and sports organizations.
-            </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-brand-red transition-colors duration-200"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-brand-red transition-colors duration-200"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-brand-red transition-colors duration-200"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-brand-red transition-colors duration-200"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div className="relative flex flex-col md:block md:h-20">
+          {/* Social Icons Only, centered and larger */}
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 flex justify-center items-center w-full md:w-auto md:absolute-none md:top-auto md:left-auto md:transform-none h-20">
+            <div className="flex space-x-8 justify-center w-full">
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Facebook className="h-8 w-8" /></a>
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Twitter className="h-8 w-8" /></a>
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Linkedin className="h-8 w-8" /></a>
+              <a href="#" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Instagram className="h-8 w-8" /></a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-heading font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          {/* Legal - right aligned, smaller, compact */}
+          <div className="flex flex-col items-end text-right text-xs space-y-1 pr-2 md:absolute md:right-0 md:top-0 md:h-full md:justify-center md:w-auto w-full mt-20 md:mt-0">
+            <h3 className="font-heading font-semibold mb-2 text-xs text-gray-400">Legal</h3>
+            <ul className="space-y-1">
               <li>
-                <Link
-                  to="/"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Home
-                </Link>
+                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs">Privacy Policy</Link>
               </li>
               <li>
-                <Link
-                  to="/services"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/team"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-lg font-heading font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Legal Disclaimer
-                </a>
+                <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs">Terms of Service</Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 Scoreboard Strategy. All rights reserved.
+        <div className="border-t border-gray-800 mt-4 pt-1 text-center">
+        <p className="text-xs text-gray-500 mt-4 max-w-3xl mx-auto">
+            Scoreboard Strategy LLC is not a law firm and does not provide legal advice. This is not attorney advertising. Any legal services are provided independently by licensed attorneys and require a separate engagement. Clients are strongly encouraged to seek the advice of qualified legal counsel licensed in their jurisdiction for legal matters.
           </p>
+          <p className="text-xs text-gray-500 mt-4 max-w-3xl mx-auto">
+            © 2025 Scoreboard Strategy. All rights reserved.
+          </p>
+  
         </div>
       </div>
     </footer>

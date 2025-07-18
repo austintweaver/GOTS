@@ -1,12 +1,78 @@
+import { useState, useEffect } from "react";
 import { ChevronDown, Scale, Users, TrendingUp, Target, Rocket, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle
+} from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
+
 const Index = () => {
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({
       behavior: "smooth"
     });
   };
+
+  // Modal state
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+  const { toast } = useToast();
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast({
+      title: "Message Sent!",
+      description: "We'll get back to you within 24 hours."
+    });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: ""
+    });
+    setOpen(false);
+  };
+
+  // Calendly script loader for modal
+  useEffect(() => {
+    if (!open) return;
+    const scriptId = 'calendly-widget-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.onload = () => {
+        window.Calendly?.initInlineWidgets();
+      };
+      document.body.appendChild(script);
+    } else {
+      // Script already present, manually initialize widgets
+      window.Calendly?.initInlineWidgets();
+    }
+  }, [open]);
+
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" style={{
@@ -23,11 +89,116 @@ const Index = () => {
 to help you win.</p>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">We combine precision, foresight, and the execution of seasoned operators, all under one roof. 
 No hourly rates. No commissions. Just outcomes.</p>
-            <Link to="/services">
-              <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
-                Explore Our Services
-              </Button>
-            </Link>
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
+                  Get Started Today
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-3xl w-full">
+                <DialogHeader>
+                  <DialogTitle>Let's Start the Conversation</DialogTitle>
+                </DialogHeader>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Calendly Embed */}
+                  <div>
+                    <div
+                      className="calendly-inline-widget"
+                      data-url="https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1"
+                      style={{ minWidth: '320px', height: '700px', width: '100%' }}
+                    />
+                  </div>
+                  {/* Contact Form */}
+                  <div className="bg-white rounded-lg shadow-lg p-6">
+                    <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
+                      Send us a Message
+                    </h3>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                            Full Name *
+                          </label>
+                          <Input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                            Email Address *
+                          </label>
+                          <Input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                            Phone Number
+                          </label>
+                          <Input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            className="w-full"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                            Subject *
+                          </label>
+                          <Input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                          Message *
+                        </label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full"
+                          placeholder="Tell us about your needs, goals, or how we can help you..."
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        className="w-full bg-brand-red hover:bg-red-700 text-white font-semibold py-2 text-lg transition-colors duration-300"
+                      >
+                        Send Message
+                      </Button>
+                    </form>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 
@@ -44,12 +215,48 @@ No hourly rates. No commissions. Just outcomes.</p>
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-8">
               About <span className="text-brand-red">Scoreboard Strategy</span>
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">At Scoreboard Strategy, we understand that success in sports extends far beyond the playing field. Our comprehensive approach combines legal expertise, strategic business guidance, and dedicated representation to help athletes, coaches, and organizations win where it matters most.</p>
+            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12">Winning requires more than talent — it takes strategy. Scoreboard Strategy provides the legal, business, and operational support athletes, coaches, entertainers, and organizations need to navigate every challenge and seize every opportunity.</p>
+            {/* Values content moved here */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-8 w-8 text-brand-red" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                  Alignment
+                </h3>
+                <p className="text-gray-600">
+                  We succeed when you do. Our model is designed to eliminate conflicts of interest, ensuring that every strategy, negotiation, and action is in full alignment with your goals, not ours.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Rocket className="h-8 w-8 text-brand-red" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                  Execution
+                </h3>
+                <p className="text-gray-600">
+                  Great strategies only matter when they're executed well. We bring precision, expertise, and business rigor to every engagement, ensuring plans translate into measurable outcomes.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-brand-red" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                  Integrity
+                </h3>
+                <p className="text-gray-600">
+                  We operate with transparency, honesty, and accountability — protecting our clients' interests with an uncompromising commitment to integrity and results.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Three Pillars Section */}
+      {/* Three Pillars Section (restored as its own section) */}
       <section className="bg-gray-50 mx-0 py-[45px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -72,8 +279,7 @@ No hourly rates. No commissions. Just outcomes.</p>
                   Legal Expertise
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Comprehensive legal counsel for contract negotiations, compliance, 
-                  governance, and dispute resolution in the sports industry.
+                Comprehensive legal solutions for sports and business — ensuring every deal, decision, and defense is built for success.
                 </p>
               </div>
             </div>
@@ -85,11 +291,10 @@ No hourly rates. No commissions. Just outcomes.</p>
                   <Users className="h-8 w-8 text-brand-red" />
                 </div>
                 <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
-                  Sports Agency Services
+                  All-In Representation
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Full-service representation for athletes and coaches, including 
-                  contract negotiations, endorsement deals, and career management.
+                Full-circle representation — contracts, endorsements, and career strategy, all aligned to your goals.
                 </p>
               </div>
             </div>
@@ -101,65 +306,12 @@ No hourly rates. No commissions. Just outcomes.</p>
                   <TrendingUp className="h-8 w-8 text-brand-red" />
                 </div>
                 <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
-                  Business Operations & Strategy
+                Fractional Leadership
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Strategic business development, fractional operations support, 
-                  and growth planning for sports organizations and enterprises.
+                Providing expert insight, structure, and strategy to streamline operations, optimize performance, and position your organization for sustained growth.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4">
-              Our <span className="text-brand-red">Values</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="h-8 w-8 text-brand-red" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                Alignment
-              </h3>
-              <p className="text-gray-600">
-                We succeed when you do. Our model is designed to eliminate conflicts of interest, ensuring that every strategy, negotiation, and action is in full alignment with your goals, not ours.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Rocket className="h-8 w-8 text-brand-red" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                Execution
-              </h3>
-              <p className="text-gray-600">
-                Great strategies only matter when they're executed well. We bring precision, expertise, and business rigor to every engagement, ensuring plans translate into measurable outcomes.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-brand-red" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                Integrity
-              </h3>
-              <p className="text-gray-600">
-                We operate with transparency, honesty, and accountability — protecting our clients' interests with an uncompromising commitment to integrity and results.
-              </p>
             </div>
           </div>
         </div>

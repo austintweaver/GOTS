@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,6 +41,18 @@ const Contact = () => {
     });
   };
 
+  // Calendly script loader
+  useEffect(() => {
+    const scriptId = 'calendly-widget-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen pt-16">
       {/* Header Section */}
@@ -50,7 +62,6 @@ const Contact = () => {
             Get In <span className="text-brand-red">Touch</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ready to win where it matters most? Let's discuss how we can help you achieve your goals.
           </p>
         </div>
       </section>
@@ -59,57 +70,19 @@ const Contact = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
+            {/* Contact Information + Calendly */}
             <div>
               <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8">
                 Let's Start the Conversation
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Whether you're an athlete looking for representation, a coach seeking contract 
-                guidance, or an organization needing strategic counsel, we're here to help.
               </p>
-
-              <div className="space-y-6">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mr-4">
-                    <Phone className="h-6 w-6 text-brand-red" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">(123) 456-7890</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mr-4">
-                    <Mail className="h-6 w-6 text-brand-red" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">info@scoreboardstrategy.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mr-4">
-                    <MapPin className="h-6 w-6 text-brand-red" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Office</h3>
-                    <p className="text-gray-600">123 Sports Center Drive<br />Suite 500<br />City, State 12345</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-brand-red/10 rounded-full flex items-center justify-center mr-4">
-                    <Clock className="h-6 w-6 text-brand-red" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 2:00 PM</p>
-                  </div>
-                </div>
-              </div>
+              {/* Calendly Embed */}
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1"
+                style={{ minWidth: '320px', height: '700px', width: '100%' }}
+              />
             </div>
 
             {/* Contact Form */}
@@ -208,35 +181,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Calendly Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
-            Schedule a <span className="text-brand-red">Consultation</span>
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Prefer to schedule a call? Use our calendar below to book a convenient time for a consultation.
-          </p>
-          
-          {/* Calendly Embed Placeholder */}
-          <div className="bg-white rounded-lg shadow-lg p-8 min-h-[600px] flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-brand-red" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                Calendly Integration
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Your Calendly embed would appear here
-              </p>
-              <Button className="bg-brand-red hover:bg-red-700 text-white">
-                Schedule Consultation
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Remove the old Calendly Section at the bottom */}
     </div>
   );
 };
