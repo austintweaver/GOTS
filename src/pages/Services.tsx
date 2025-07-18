@@ -89,7 +89,7 @@ const Services = () => {
                   Representation Reinvented
                 </p>
                 {/* Four Pillars moved here */}
-                <div className="grid grid-cols-4 gap-4 mb-8 overflow-x-auto px-2" style={{ minWidth: 600 }}>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 px-2">
                   {gamePillars.map((pillar, index) => <div key={pillar.title} className="text-center group">
                       <div className="relative mb-6">
                         <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300 border-2 border-brand-red/10 group-hover:border-brand-red/30">

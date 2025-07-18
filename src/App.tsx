@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Team from "./pages/Team";
@@ -64,6 +64,15 @@ const CookieBanner = () => {
   );
 };
 
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [pathname]);
+  return null;
+}
+
 const App = () => {
   useEffect(() => {
     // Only inject Calendly badge on non-mobile devices
@@ -110,6 +119,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <div className="min-h-screen bg-white">
             <Navigation />
             <Routes>

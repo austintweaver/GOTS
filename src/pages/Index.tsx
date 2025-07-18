@@ -109,14 +109,15 @@ const Index = () => {
             </p>
           </div>
           {/* CTA Button */}
-          <Button
-            size="lg"
-            className="bg-brand-red hover:bg-red-700 text-white font-extrabold px-12 py-5 text-2xl shadow-xl rounded-full transition-all duration-300 tracking-wide uppercase"
-            style={{ letterSpacing: '0.05em' }}
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Let's Get to Work
-          </Button>
+          <Link to="/contact">
+            <Button
+              size="lg"
+              className="bg-brand-red hover:bg-red-700 text-white font-extrabold px-12 py-5 text-2xl shadow-xl rounded-full transition-all duration-300 tracking-wide uppercase"
+              style={{ letterSpacing: '0.05em' }}
+            >
+              Let's Get to Work
+            </Button>
+          </Link>
         </div>
       </section>
 
