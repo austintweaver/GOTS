@@ -1,13 +1,16 @@
-import { ChevronDown, Scale, Users, TrendingUp } from "lucide-react";
+import { ChevronDown, Scale, Users, TrendingUp, Target, Rocket, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+
 const Index = () => {
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({
       behavior: "smooth"
     });
   };
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" style={{
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
@@ -109,6 +112,58 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Values Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4">
+              Our <span className="text-brand-red">Values</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Target className="h-8 w-8 text-brand-red" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                Alignment
+              </h3>
+              <p className="text-gray-600">
+                We succeed when you do. Our model is designed to eliminate conflicts of interest, ensuring that every strategy, negotiation, and action is in full alignment with your goals, not ours.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Rocket className="h-8 w-8 text-brand-red" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                Execution
+              </h3>
+              <p className="text-gray-600">
+                Great strategies only matter when they're executed well. We bring precision, expertise, and business rigor to every engagement, ensuring plans translate into measurable outcomes.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-brand-red" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                Integrity
+              </h3>
+              <p className="text-gray-600">
+                We operate with transparency, honesty, and accountability — protecting our clients' interests with an uncompromising commitment to integrity and results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -125,6 +180,8 @@ const Index = () => {
           </Link>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
