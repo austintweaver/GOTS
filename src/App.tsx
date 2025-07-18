@@ -11,7 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 
@@ -22,6 +22,37 @@ declare global {
 }
 
 const queryClient = new QueryClient();
+
+const CookieBanner = () => {
+  const [visible, setVisible] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !localStorage.getItem('cookieConsent');
+    }
+    return false;
+  });
+
+  const handleConsent = (accepted: boolean) => {
+    localStorage.setItem('cookieConsent', accepted ? 'accepted' : 'declined');
+    setVisible(false);
+    // Optionally initialize analytics tools here if accepted
+  };
+
+  if (!visible) return null;
+
+  return (
+    <div id="cookie-banner" style={{ display: 'block', position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#f8f8f8', color: '#333', padding: '15px 20px', boxShadow: '0 -2px 5px rgba(0,0,0,0.1)', zIndex: 1000, fontFamily: 'Arial, sans-serif' }}>
+      <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
+        <p style={{ margin: 0, fontSize: 14 }}>
+          We use cookies and tracking technologies to enhance your browsing experience, analyze traffic, and improve our services. <a href="/privacy-policy" style={{ color: '#0066cc' }}>Learn more</a>.
+        </p>
+        <div style={{ marginTop: 10 }}>
+          <button onClick={() => handleConsent(true)} style={{ marginRight: 10, backgroundColor: '#0066cc', color: '#fff', border: 'none', padding: '8px 14px', cursor: 'pointer', borderRadius: 4 }}>Accept</button>
+          <button onClick={() => handleConsent(false)} style={{ backgroundColor: '#ccc', color: '#333', border: 'none', padding: '8px 14px', cursor: 'pointer', borderRadius: 4 }}>Decline</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const App = () => {
   useEffect(() => {
@@ -43,7 +74,7 @@ const App = () => {
         if (window.Calendly) {
           window.Calendly.initBadgeWidget({
             url: 'https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1',
-            text: 'Schedule Initial Call',
+            text: 'Schedule a Call',
             color: '#DC2626',
             textColor: '#ffffff'
           });
@@ -53,7 +84,7 @@ const App = () => {
     } else if (window.Calendly) {
       window.Calendly.initBadgeWidget({
         url: 'https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1',
-        text: 'Schedule Initial Call',
+        text: 'Schedule a Call',
         color: '#DC2626',
         textColor: '#ffffff'
       });
@@ -78,6 +109,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
+            <CookieBanner />
           </div>
         </BrowserRouter>
       </TooltipProvider>

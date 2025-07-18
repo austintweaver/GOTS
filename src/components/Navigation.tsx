@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,36 +17,38 @@ const Navigation = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
-  const navLinks = [{
-    name: "Home",
-    path: "/"
-  }, {
-    name: "Services",
-    path: "/services"
-  }, {
-    name: "Team",
-    path: "/team"
-  }, {
-    name: "Contact",
-    path: "/contact"
-  }];
-  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}>
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Team", path: "/team" },
+    { name: "Contact", path: "/contact" }
+  ];
+
+  // Determine which logo to use and its size
+  const isHome = location.pathname === "/";
+  const logoSrc = isHome && !isScrolled ? "/assets/whitelogo.png" : "/assets/blacklogo.png";
+  const logoAlt = "Scoreboard Strategy Logo";
+  const logoClass = isHome && !isScrolled ? "h-20 pt-2" : "h-14";
+
+  // Determine header background
+  const navBg = isHome && !isScrolled ? "bg-transparent" : "bg-white/95 backdrop-blur-md shadow-lg";
+
+  // Determine link color
+  const linkColor = isHome && !isScrolled ? "text-white" : "text-gray-900";
+
+  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-heading font-bold text-brand-black">
-              Scoreboard{" "}
-              <span className="text-brand-red">Strategy</span>
-            </span>
+            <img src={logoSrc} alt={logoAlt} className={`${logoClass} w-auto transition-all duration-300`} />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map(link => <Link key={link.path} to={link.path} className={`text-sm font-medium transition-colors duration-200 hover:text-brand-red ${location.pathname === link.path ? "text-brand-red" : isScrolled ? "text-gray-900" : "text-white"}`}>
+            {navLinks.map(link => <Link key={link.path} to={link.path} className={`text-sm font-medium transition-colors duration-200 hover:text-brand-red ${location.pathname === link.path ? "text-brand-red" : linkColor}`}>
                 {link.name}
               </Link>)}
-            
           </div>
 
           {/* Mobile menu button */}

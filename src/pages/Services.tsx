@@ -65,15 +65,9 @@ const Services = () => {
           <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
             Our <span className="text-brand-red">Services</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Comprehensive solutions designed to help you win where it matters most
-          </p>
         </div>
-      </section>
-
-      {/* Toggle Switch Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Toggle Switch Section moved here */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 mb-4">
           <div className="flex items-center justify-center space-x-6">
             <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>
               The GAME Plan
@@ -87,44 +81,44 @@ const Services = () => {
       </section>
 
       {/* Content Sections */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           {showGamePlan ? (/* GAME Plan Panel */
-        <div className="bg-gray-50 rounded-3xl p-8 md:p-12">
+        <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
               <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-red/10 rounded-full mb-6">
-                  <Zap className="h-8 w-8 text-brand-red" />
-                </div>
                 <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
                   The <span className="text-brand-red">GAME</span> Plan
                 </h2>
                 <p className="text-xl text-gray-700 mb-6 font-semibold">
                   Representation Reinvented
                 </p>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
-                  Subscription-based support for Athletes, Coaches, Administrators, Entertainers, and Creators. No commissions — just outcomes.
-                </p>
-                <p className="text-gray-600 max-w-3xl mx-auto">
-                  We provide expert support across your career and business journey through a predictable, subscription-based model — removing traditional conflicts of interest.
-                </p>
-              </div>
-
-              {/* Four Pillars */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                {gamePillars.map((pillar, index) => <div key={pillar.title} className="text-center group">
-                    <div className="relative mb-6">
-                      <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300 border-2 border-brand-red/10 group-hover:border-brand-red/30">
-                        <pillar.icon className="h-10 w-10 text-brand-red" />
+                {/* Four Pillars moved here */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                  {gamePillars.map((pillar, index) => <div key={pillar.title} className="text-center group">
+                      <div className="relative mb-6">
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300 border-2 border-brand-red/10 group-hover:border-brand-red/30">
+                          <pillar.icon className="h-10 w-10 text-brand-red" />
+                        </div>
+                        {index < gamePillars.length - 1 && <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-brand-red/30 to-transparent transform -translate-y-1/2"></div>}
                       </div>
-                      {index < gamePillars.length - 1 && <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-brand-red/30 to-transparent transform -translate-y-1/2"></div>}
-                    </div>
-                    <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </div>)}
+                      <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {pillar.description}
+                      </p>
+                    </div>)}
+                </div>
+                {/* New supporting paragraphs */}
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
+                  We offer subscription-based support for athletes, coaches, administrators, entertainers, and creators — delivering expert guidance without the commissions or conflicts of traditional representation.
+                </p>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
+                  Our approach is built for the full scope of your career and business journey. From navigating NIL deals and contract negotiations to career progression, brand building, and professional growth — we’re with you at every stage. Our model ensures you have access to legal expertise, strategic advice, and business management whenever you need it — all within a transparent, predictable subscription.
+                </p>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                  We don’t take a percentage of your success — we help you build it.
+                </p>
               </div>
 
               {/* CTA Buttons */}
@@ -138,7 +132,7 @@ const Services = () => {
               </div>
             </div>) : (/* Business Services Panel */
         <div>
-              <div className="text-center mb-12">
+              <div className="text-center mb-8">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-red/10 rounded-full mb-4">
                   <Building className="h-8 w-8 text-brand-red" />
                 </div>
@@ -150,7 +144,7 @@ const Services = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {brandServices.map(service => <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-gray-200 hover:border-brand-red/20">
                     <CardHeader className="flex flex-col items-center pb-4"> {/* Center icon and text */}
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-red/10 rounded-full mb-4 group-hover:bg-brand-red/20 transition-colors duration-300">
@@ -172,17 +166,17 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-heading font-bold mb-6">
-            Ready to Get <span className="text-brand-red">Started</span>?
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8">
+            Ready to <span className="text-brand-red">Win</span><br />
+            Where It <span className="text-brand-red">Matters Most</span>?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss your specific needs and how we can help you achieve your goals.
-          </p>
-          <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105" asChild>
-            <Link to="/contact">Schedule a Consultation</Link>
-          </Button>
+          <Link to="/contact">
+            <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
+              Let's Get to Work
+            </Button>
+          </Link>
         </div>
       </section>
     </div>;

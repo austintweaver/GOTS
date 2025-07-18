@@ -75,137 +75,49 @@ const Index = () => {
 
   return <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
-    }}>
-        <div className="text-center z-10 max-w-4xl mx-auto px-4">
-          <div className="animate-fade-in">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-6">
-              <span className="text-brand-red block text-5xl">Win</span>
-              <span className="text-white block text-4xl">Where It Matters Most</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">At Scoreboard Strategy, we represent more than just clients 
- We represent competitors, creators, builders, and visionaries. Whether you're an athlete, coach, entertainer, entrepreneur, or executive, our mission is simple: 
-to help you win.</p>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">We combine precision, foresight, and the execution of seasoned operators, all under one roof. 
-No hourly rates. No commissions. Just outcomes.</p>
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
-                  Get Started Today
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-3xl w-full">
-                <DialogHeader>
-                  <DialogTitle>Let's Start the Conversation</DialogTitle>
-                </DialogHeader>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Calendly Embed */}
-                  <div>
-                    <div
-                      className="calendly-inline-widget"
-                      data-url="https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1"
-                      style={{ minWidth: '320px', height: '700px', width: '100%' }}
-                    />
-                  </div>
-                  {/* Contact Form */}
-                  <div className="bg-white rounded-lg shadow-lg p-6">
-                    <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
-                      Send us a Message
-                    </h3>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div>
-                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                            Full Name *
-                          </label>
-                          <Input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                            Email Address *
-                          </label>
-                          <Input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full"
-                          />
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div>
-                          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                            Phone Number
-                          </label>
-                          <Input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            className="w-full"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                            Subject *
-                          </label>
-                          <Input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            value={formData.subject}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                          Message *
-                        </label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          rows={4}
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full"
-                          placeholder="Tell us about your needs, goals, or how we can help you..."
-                        />
-                      </div>
-                      <Button
-                        type="submit"
-                        className="w-full bg-brand-red hover:bg-red-700 text-white font-semibold py-2 text-lg transition-colors duration-300"
-                      >
-                        Send Message
-                      </Button>
-                    </form>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+      <section
+        className="relative h-screen flex items-center justify-center bg-black bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('/assets/scoreboardhome.jpg')`
+        }}
+      >
+        <div className="z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center text-center">
+          {/* Headline */}
+          <h1 className="font-extrabold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 tracking-tight relative">
+            <span className="inline-block pb-2 border-b-4 border-brand-red">
+              Built to Win.<br />
+              Designed to Deliver.
+            </span>
+          </h1>
+          {/* Subheadline */}
+          <h2 className="text-brand-red text-2xl sm:text-3xl md:text-4xl font-bold mb-6 mt-2 tracking-wide uppercase">
+            We partner with competitors, creators and builders.
+          </h2>
+          {/* Supporting Body Text */}
+          <div className="text-lg md:text-xl text-white font-medium space-y-2 mb-10 max-w-2xl mx-auto">
+            <p className="leading-snug">
+              <span className="font-semibold text-white">We advise.</span> <span className="font-semibold text-white">We represent.</span> <span className="font-semibold text-white">We execute.</span>
+            </p>
+            <p className="leading-snug">
+              From the locker room to the boardroom, we help <span className="font-bold text-brand-red">athletes</span>, <span className="font-bold text-brand-red">coaches</span>, <span className="font-bold text-brand-red">entertainers</span>, <span className="font-bold text-brand-red">entrepreneurs</span>, and <span className="font-bold text-brand-red">executives</span> win where it counts.
+            </p>
+            <p className="leading-snug whitespace-nowrap">
+              Legal expertise. Business strategy. Operational leadership. <span className="font-bold text-white">All in one place.</span>
+            </p>
+            <p className="leading-snug text-white">
+              No commissions. No billable hours. <span className="font-bold">Just outcomes.</span>
+            </p>
           </div>
+          {/* CTA Button */}
+          <Button
+            size="lg"
+            className="bg-brand-red hover:bg-red-700 text-white font-extrabold px-12 py-5 text-2xl shadow-xl rounded-full transition-all duration-300 tracking-wide uppercase"
+            style={{ letterSpacing: '0.05em' }}
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Let's Get to Work
+          </Button>
         </div>
-
-        {/* Scroll indicator */}
-        <button onClick={scrollToAbout} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-          <ChevronDown className="h-8 w-8" />
-        </button>
       </section>
 
       {/* About Section */}
@@ -261,7 +173,7 @@ No hourly rates. No commissions. Just outcomes.</p>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
-              Our <span className="text-brand-red">Three Pillars</span>
+              Our <span className="text-brand-red">Core Strengths</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Built on a foundation of excellence, integrity, and results-driven strategies.
@@ -321,14 +233,14 @@ No hourly rates. No commissions. Just outcomes.</p>
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8">
-            Ready to Win Where It <span className="text-brand-red">Matters Most</span>?
+            Ready to <span className="text-brand-red">Win</span><br />
+            Where It <span className="text-brand-red">Matters Most</span>?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how Scoreboard Strategy can help you achieve your goals.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
-              Get Started Today
+              Let's Get to Work
             </Button>
           </Link>
         </div>

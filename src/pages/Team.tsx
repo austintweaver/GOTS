@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import { Linkedin, Mail, Target, Rocket, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "../components/ui/button";
 
 const Team = () => {
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
@@ -128,6 +130,21 @@ const Team = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8">
+            Ready to <span className="text-brand-red">Win</span><br />
+            Where It <span className="text-brand-red">Matters Most</span>?
+          </h2>
+          <Link to="/contact">
+            <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
+              Let's Get to Work
+            </Button>
+          </Link>
         </div>
       </section>
     </div>
