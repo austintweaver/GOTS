@@ -66,6 +66,9 @@ const CookieBanner = () => {
 
 const App = () => {
   useEffect(() => {
+    // Only inject Calendly badge on non-mobile devices
+    const isMobile = () => /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile()) return;
     // Inject Calendly CSS
     if (!document.getElementById('calendly-badge-css')) {
       const link = document.createElement('link');

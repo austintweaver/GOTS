@@ -76,32 +76,32 @@ const Index = () => {
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center bg-black bg-cover bg-center bg-fixed"
+        className="relative h-screen flex items-center justify-center bg-black bg-cover bg-center bg-fixed overflow-x-hidden"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)), url('/assets/scoreboardhome.jpg')`
         }}
       >
-        <div className="z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center text-center">
+        <div className="z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center">
           {/* Headline */}
-          <h1 className="font-extrabold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 tracking-tight relative">
+          <h1 className="font-extrabold text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 tracking-tight break-words">
             <span className="inline-block pb-2 border-b-4 border-brand-red">
               Built to Win.<br />
               Designed to Deliver.
             </span>
           </h1>
           {/* Subheadline */}
-          <h2 className="text-brand-red text-2xl sm:text-3xl md:text-4xl font-bold mb-6 mt-2 tracking-wide uppercase">
+          <h2 className="text-brand-red text-xl sm:text-2xl md:text-4xl font-bold mb-6 mt-2 tracking-wide uppercase break-words">
             We partner with competitors, creators and builders.
           </h2>
           {/* Supporting Body Text */}
-          <div className="text-lg md:text-xl text-white font-medium space-y-2 mb-10 max-w-2xl mx-auto">
+          <div className="text-base sm:text-lg md:text-xl text-white font-medium space-y-2 mb-10 max-w-full break-words">
             <p className="leading-snug">
               <span className="font-semibold text-white">We advise.</span> <span className="font-semibold text-white">We represent.</span> <span className="font-semibold text-white">We execute.</span>
             </p>
             <p className="leading-snug">
               From the locker room to the boardroom, we help <span className="font-bold text-brand-red">athletes</span>, <span className="font-bold text-brand-red">coaches</span>, <span className="font-bold text-brand-red">entertainers</span>, <span className="font-bold text-brand-red">entrepreneurs</span>, and <span className="font-bold text-brand-red">executives</span> win where it counts.
             </p>
-            <p className="leading-snug whitespace-nowrap">
+            <p className="leading-snug break-words">
               Legal expertise. Business strategy. Operational leadership. <span className="font-bold text-white">All in one place.</span>
             </p>
             <p className="leading-snug text-white">
