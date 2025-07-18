@@ -73,10 +73,10 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           {/* Toggle Switch Section restored here */}
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 mb-4 flex justify-center">
-            <div className="flex items-center space-x-6">
-              <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>The GAME Plan</Label>
+            <div className="flex items-center space-x-2 w-full max-w-xs justify-between">
+              <Label htmlFor="service-toggle" className={`flex-1 text-center text-lg font-semibold transition-colors ${showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>The GAME Plan</Label>
               <Switch id="service-toggle" checked={!showGamePlan} onCheckedChange={checked => setShowGamePlan(!checked)} className="data-[state=checked]:bg-brand-red" />
-              <Label htmlFor="service-toggle" className={`text-lg font-semibold transition-colors ${!showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>Business Services</Label>
+              <Label htmlFor="service-toggle" className={`flex-1 text-center text-lg font-semibold transition-colors ${!showGamePlan ? 'text-brand-red' : 'text-gray-500'}`}>Business Services</Label>
             </div>
           </div>
           {showGamePlan ? (/* GAME Plan Panel */
@@ -91,7 +91,7 @@ const Services = () => {
                 {/* Four Pillars moved here */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 px-2">
                   {gamePillars.map((pillar, index) => <div key={pillar.title} className="text-center group">
-                      <div className="relative mb-6">
+                      <div className="relative mb-2">
                         <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300 border-2 border-brand-red/10 group-hover:border-brand-red/30">
                           <pillar.icon className="h-10 w-10 text-brand-red" />
                         </div>
@@ -122,7 +122,7 @@ const Services = () => {
                 <Button size="lg" className="bg-brand-red hover:bg-red-700 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105" asChild>
                   
                 </Button>
-                <Button size="lg" variant="outline" className="border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-semibold px-8 py-4 text-lg transition-all duration-300" asChild>
+                <Button size="lg" variant="outline" className="border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-semibold px-8 py-4 text-lg transition-all duration-300 hidden sm:inline-flex" asChild>
                   <Link to="/contact">Learn About Our Subscription Model</Link>
                 </Button>
               </div>
