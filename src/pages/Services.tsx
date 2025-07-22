@@ -165,24 +165,24 @@ const Services = () => {
                       <thead>
                         <tr className="bg-gray-50">
                           <th className="px-4 py-3 text-left font-bold text-gray-900 text-base">Tier</th>
-                          <th className="px-4 py-3 text-left font-bold text-gray-900 text-base">Monthly Fee</th>
+                          <th className="px-4 py-3 text-center font-bold text-gray-900 text-base">Monthly Fee</th>
                           <th className="px-4 py-3 text-right font-bold text-gray-900 text-base">Support & Coverage</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Launch</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">$2,000</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center">$2,000</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Operational reviews, process improvement, systems development, leadership alignment.</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Accelerate</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">$4,000</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center">$4,000</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Scaling strategy, team alignment, performance frameworks.</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Elevate</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">Custom Pricing</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center">Custom Pricing</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Senior leadership for operational oversight, scaling initiatives, and capital strategy.</td>
                         </tr>
                       </tbody>
@@ -211,28 +211,28 @@ const Services = () => {
                       <thead>
                         <tr className="bg-gray-50">
                           <th className="px-4 py-3 text-left font-bold text-gray-900 text-base">Tier Name</th>
-                          <th className="px-4 py-3 text-left font-bold text-gray-900 text-base">Scoreboard Legal<br/>Subscription Level</th>
-                          <th className="px-4 py-3 text-left font-bold text-gray-900 text-base">Combined Monthly Fee</th>
+                          <th className="px-4 py-3 text-center font-bold text-gray-900 text-base align-middle">Scoreboard Legal<br/>Subscription Level</th>
+                          <th className="px-4 py-3 text-left font-bold text-gray-900 text-base">Monthly Fee</th>
                           <th className="px-4 py-3 text-right font-bold text-gray-900 text-base">Support & Coverage</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Launch+</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">Advisor</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">$3,300</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">Advisor</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">$3,300</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Fractional COO foundational ops + basic legal strategy & support</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Accelerate+</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">Partner</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">$5,500</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">Partner</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">$5,500</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Mid-level fractional leadership + expanded legal counsel & operational/legal<br/>playbook integration</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Elevate+</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">GC+ (custom)</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap">Custom Pricing</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">GC+ (custom)</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">Custom Pricing</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Senior fractional COO/CAO + full legal team support including M&A, fundraising, compliance</td>
                         </tr>
                       </tbody>

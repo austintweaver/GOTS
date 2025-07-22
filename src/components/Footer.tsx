@@ -31,10 +31,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-4 pt-1 text-center">
-        <p className="text-xs text-gray-500 mt-4 max-w-3xl mx-auto">
+        <p className="text-xs text-white mt-4 max-w-3xl mx-auto">
             Scoreboard Strategy LLC is not a law firm and does not provide legal advice. This site is not intended as attorney advertising. Any legal services are provided independently by licensed attorneys through a separate engagement, and additional costs may apply. Clients are encouraged to consult with qualified legal counsel licensed in their jurisdiction for any legal matters.
           </p>
-          <p className="text-xs text-gray-500 mt-4 max-w-3xl mx-auto">
+          <p className="text-xs text-white mt-4 max-w-3xl mx-auto">
             © 2025 Scoreboard Strategy. All rights reserved.
           </p>
   
