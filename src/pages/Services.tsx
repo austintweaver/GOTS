@@ -226,7 +226,7 @@ const Services = () => {
                         <tr>
                           <td className="px-4 py-4 font-bold text-gray-900 whitespace-nowrap">Accelerate+</td>
                           <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">Partner</td>
-                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">$5,500</td>
+                          <td className="px-4 py-4 text-gray-700 whitespace-nowrap text-center align-middle">$6,000</td>
                           <td className="px-4 py-4 text-gray-700 text-right">Mid-level fractional leadership + expanded legal counsel & operational/legal<br/>playbook integration</td>
                         </tr>
                         <tr>
