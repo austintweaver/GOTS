@@ -121,7 +121,7 @@ const Services = () => {
 
               {/* Price badge above CTA buttons */}
               <div className="text-center mb-6">
-                <span className="text-brand-red text-2xl md:text-3xl font-extrabold">$500/month</span>
+                <span className="text-brand-red text-2xl md:text-3xl font-extrabold">Starting at $500/month</span>
                 <div className="text-xs text-gray-500 mt-2 max-w-xs mx-auto">Includes a credit each month with Scoreboard Legal and discounted rates on services beyond the plan.</div>
               </div>
 
