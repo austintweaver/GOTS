@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import PrivateInfo from "./pages/PrivateInfo";
 
 declare global {
   interface Window {
@@ -129,6 +130,7 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/private-info" element={<PrivateInfo />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
