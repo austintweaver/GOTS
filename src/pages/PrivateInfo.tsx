@@ -17,8 +17,8 @@ const PrivateInfo = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                <a href="mailto:your.email@example.com" className="text-gray-600 hover:text-brand-red transition-colors">
-                  your.email@example.com
+                <a href="mailto:austin@scoreboardstrategy.com" className="text-gray-600 hover:text-brand-red transition-colors">
+                  austin@scoreboardstrategy.com
                 </a>
               </div>
             </div>
@@ -30,8 +30,8 @@ const PrivateInfo = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                <a href="tel:+1234567890" className="text-gray-600 hover:text-brand-red transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+18063671776" className="text-gray-600 hover:text-brand-red transition-colors">
+                  +1 (806) 367-1776
                 </a>
               </div>
             </div>
@@ -44,7 +44,7 @@ const PrivateInfo = () => {
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900 mb-1">LinkedIn</h3>
                 <Button variant="link" className="p-0 h-auto text-gray-600 hover:text-brand-red" asChild>
-                  <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/austintweaver/" target="_blank" rel="noopener noreferrer">
                     View LinkedIn Profile
                   </a>
                 </Button>
