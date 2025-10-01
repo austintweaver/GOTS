@@ -39,7 +39,6 @@ const PrivateInfo = () => {
       'N:Weaver;Austin;;;',
       'FN:Austin Weaver',
       'ORG:Scoreboard Strategy',
-      'TITLE:Founder & Principal',
       photoLine,
       'TEL;TYPE=CELL,VOICE:+18063671776',
       'EMAIL;TYPE=INTERNET;TYPE=WORK:austin@scoreboardstrategy.com',
