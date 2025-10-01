@@ -1,7 +1,29 @@
-import { Mail, Phone, Linkedin } from "lucide-react";
+import { Mail, Phone, Linkedin, UserPlus } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 const PrivateInfo = () => {
+  const handleAddToContacts = () => {
+    const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:Austin Weaver
+TEL;TYPE=CELL:+18063671776
+EMAIL:austin@scoreboardstrategy.com
+URL:https://www.linkedin.com/in/austintweaver/
+ORG:Scoreboard Strategy
+TITLE:Founder & Principal
+END:VCARD`;
+
+    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Austin_Weaver.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
   return <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24 pb-12">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="shadow-lg">
@@ -56,10 +78,19 @@ const PrivateInfo = () => {
                 </Button>
               </div>
             </div>
+
+            {/* Add to Contacts Button */}
+            <div className="pt-4 border-t border-gray-200">
+              <Button 
+                onClick={handleAddToContacts}
+                className="w-full bg-brand-red hover:bg-red-700 text-white"
+              >
+                <UserPlus className="h-5 w-5 mr-2" />
+                Add to Contacts
+              </Button>
+            </div>
           </CardContent>
         </Card>
-
-        
       </div>
     </div>;
 };
