@@ -4,17 +4,21 @@ import { Button } from "@/components/ui/button";
 
 const PrivateInfo = () => {
   const handleAddToContacts = () => {
-    const vCard = `BEGIN:VCARD
-VERSION:3.0
-FN:Austin Weaver
-TEL;TYPE=CELL:+18063671776
-EMAIL:austin@scoreboardstrategy.com
-URL:https://www.linkedin.com/in/austintweaver/
-ORG:Scoreboard Strategy
-TITLE:Founder & Principal
-END:VCARD`;
+    const vCard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      // Structured name ensures the contact displays as a person, not the org
+      'N:Weaver;Austin;;;',
+      'FN:Austin Weaver',
+      'ORG:Scoreboard Strategy',
+      'TITLE:Founder & Principal',
+      'TEL;TYPE=CELL,VOICE:+18063671776',
+      'EMAIL;TYPE=INTERNET;TYPE=WORK:austin@scoreboardstrategy.com',
+      'URL:https://www.linkedin.com/in/austintweaver/',
+      'END:VCARD'
+    ].join('\r\n');
 
-    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
