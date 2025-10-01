@@ -6,8 +6,14 @@ const PrivateInfo = () => {
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="shadow-lg">
           <CardHeader className="text-center">
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/assets/weaver-headshot.jpeg" 
+                alt="Austin Weaver" 
+                className="w-32 h-32 rounded-full object-cover border-4 border-brand-red"
+              />
+            </div>
             <CardTitle className="text-3xl font-bold text-gray-900">Contact Information</CardTitle>
-            
           </CardHeader>
           <CardContent className="space-y-6 pt-6">
             {/* Email */}
