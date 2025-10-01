@@ -3,15 +3,44 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 
 const PrivateInfo = () => {
-  const handleAddToContacts = () => {
+  const handleAddToContacts = async () => {
+    // Helper to convert ArrayBuffer to Base64
+    const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
+      let binary = '';
+      const bytes = new Uint8Array(buffer);
+      const len = bytes.byteLength;
+      for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary);
+    };
+
+    // Fetch the headshot and encode as base64 for embedding in vCard
+    let photoLine = '';
+    try {
+      const res = await fetch('/assets/weaver-headshot.jpeg', { cache: 'reload' });
+      if (res.ok) {
+        const buffer = await res.arrayBuffer();
+        const base64 = arrayBufferToBase64(buffer);
+        // vCard 3.0 inline photo encoding
+        photoLine = `PHOTO;ENCODING=b;TYPE=JPEG:${base64}`;
+      } else {
+        // Fallback to URL if fetch fails
+        photoLine = `PHOTO;TYPE=JPEG;VALUE=URI:${window.location.origin}/assets/weaver-headshot.jpeg`;
+      }
+    } catch (e) {
+      // Fallback to URL on any error
+      photoLine = `PHOTO;TYPE=JPEG;VALUE=URI:${window.location.origin}/assets/weaver-headshot.jpeg`;
+    }
+
     const vCard = [
       'BEGIN:VCARD',
       'VERSION:3.0',
-      // Structured name ensures the contact displays as a person, not the org
       'N:Weaver;Austin;;;',
       'FN:Austin Weaver',
       'ORG:Scoreboard Strategy',
       'TITLE:Founder & Principal',
+      photoLine,
       'TEL;TYPE=CELL,VOICE:+18063671776',
       'EMAIL;TYPE=INTERNET;TYPE=WORK:austin@scoreboardstrategy.com',
       'URL:https://www.linkedin.com/in/austintweaver/',
