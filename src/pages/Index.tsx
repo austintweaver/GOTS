@@ -1,16 +1,40 @@
-import { BookOpen, Award, Target } from "lucide-react";
+import { BookOpen, Award, Target, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import bookCover from "@/assets/book-cover.jpg";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen">
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed top-4 left-4 z-50 bg-brand-red hover:bg-red-700 text-white rounded-full p-3 shadow-lg transition-all duration-300 transform hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
       {/* Hero Section with Book Cover */}
       <section
         className="relative min-h-screen flex items-center justify-center bg-black bg-cover bg-center overflow-x-hidden py-20"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('/assets/scoreboardhome.jpg')`
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/scoreboardhome.jpg')`
         }}
       >
         <div className="z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
@@ -20,32 +44,21 @@ const Index = () => {
               <img
                 src={bookCover}
                 alt="Get on the Scoreboard book cover"
-                className="w-full max-w-md shadow-2xl rounded-lg transform hover:scale-105 transition-transform duration-300"
+                className="w-full max-w-sm shadow-2xl rounded-lg transform hover:scale-105 transition-transform duration-300"
               />
             </div>
 
             {/* Book Info */}
             <div className="text-center lg:text-left space-y-6">
-              <h1 className="font-extrabold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-                GET ON THE<br />
-                <span className="text-brand-red">SCOREBOARD</span>
+              <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
+                <span className="text-brand-red">Win.</span> <span className="text-white">Where It Matters Most.</span>
               </h1>
               
-              <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-bold leading-relaxed">
-                Turn Talent and Ideas Into<br />
-                a Business That Wins
-              </h2>
-
-              <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0">
-                Tools for Athletes, Entertainers, Creators and Entrepreneurs<br />
-                to Win in the Game of Business
+              <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Practical tools for athletes, entertainers, creators, and entrepreneurs to think bigger, protect smarter, and grow stronger.
               </p>
 
               <div className="pt-4">
-                <p className="text-white text-2xl font-semibold mb-8">
-                  by <span className="text-brand-red">Austin Weaver</span>
-                </p>
-
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Button
@@ -56,16 +69,6 @@ const Index = () => {
                     <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
                       Buy on Amazon
                     </a>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-10 py-6 text-xl rounded-lg transition-all duration-300"
-                    asChild
-                  >
-                    <Link to="/contact">
-                      Contact Austin
-                    </Link>
                   </Button>
                 </div>
               </div>
@@ -161,16 +164,6 @@ const Index = () => {
               <p className="text-lg text-gray-600 leading-relaxed">
                 With experience in sports law, business operations, and strategic representation, Austin brings a comprehensive approach to career development and business building. His mission is to eliminate the barriers between talent and opportunity, ensuring that those with the drive to succeed have the tools and guidance they need to win.
               </p>
-              <div className="pt-4">
-                <Link to="/team">
-                  <Button
-                    size="lg"
-                    className="bg-brand-red hover:bg-red-700 text-white font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105"
-                  >
-                    Learn More
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -194,16 +187,6 @@ const Index = () => {
               <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
                 Order Your Copy
               </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-10 py-6 text-xl rounded-lg transition-all duration-300"
-              asChild
-            >
-              <Link to="/contact">
-                Connect with Austin
-              </Link>
             </Button>
           </div>
         </div>

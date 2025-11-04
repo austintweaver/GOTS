@@ -5,9 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
-import Services from "./pages/Services";
-import Team from "./pages/Team";
-import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -18,7 +15,6 @@ import PrivateInfo from "./pages/PrivateInfo";
 
 declare global {
   interface Window {
-    Calendly?: any;
     clarity?: any;
   }
 }
@@ -75,45 +71,6 @@ function ScrollToTop() {
 }
 
 const App = () => {
-  useEffect(() => {
-    // Only inject Calendly badge on non-mobile devices
-    const isMobile = () => /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (isMobile()) return;
-    // Inject Calendly CSS
-    if (!document.getElementById('calendly-badge-css')) {
-      const link = document.createElement('link');
-      link.id = 'calendly-badge-css';
-      link.rel = 'stylesheet';
-      link.href = 'https://assets.calendly.com/assets/external/widget.css';
-      document.head.appendChild(link);
-    }
-    // Inject Calendly script
-    if (!document.getElementById('calendly-badge-script')) {
-      const script = document.createElement('script');
-      script.id = 'calendly-badge-script';
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      script.onload = () => {
-        if (window.Calendly) {
-          window.Calendly.initBadgeWidget({
-            url: 'https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1',
-            text: 'Schedule a Call',
-            color: '#DC2626',
-            textColor: '#ffffff'
-          });
-        }
-      };
-      document.body.appendChild(script);
-    } else if (window.Calendly) {
-      window.Calendly.initBadgeWidget({
-        url: 'https://calendly.com/austin-scoreboardstrategy/30min?hide_event_type_details=1',
-        text: 'Schedule a Call',
-        color: '#DC2626',
-        textColor: '#ffffff'
-      });
-    }
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -125,9 +82,6 @@ const App = () => {
             <Navigation />
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/private-info" element={<PrivateInfo />} />
