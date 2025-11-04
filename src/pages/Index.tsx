@@ -77,8 +77,7 @@ const Index = () => {
                   </div>
                   <div className="w-auto">
                     <Button
-                      variant="outline"
-                      className="border-2 border-white text-white hover:bg-white hover:text-black font-bold h-10 px-4 text-sm whitespace-nowrap"
+                      className="bg-white text-black hover:bg-gray-100 font-bold h-10 px-4 text-sm whitespace-nowrap"
                       asChild
                     >
                       <a href="https://www.scoreboardcollective.com" target="_blank" rel="noopener noreferrer">
