@@ -2,6 +2,7 @@ import { BookOpen, Award, Target, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bookCover from "@/assets/book-cover.jpg";
 import { useState, useEffect } from "react";
+import { EmailSignup } from "@/components/EmailSignup";
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -58,16 +59,43 @@ const Index = () => {
                 Practical tools for athletes, entertainers, creators, and entrepreneurs to think bigger, protect smarter, and grow stronger.
               </p>
 
-              <div className="pt-4">
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              {/* Credibility line */}
+              <p className="text-gray-300/90 italic max-w-3xl mx-auto lg:mx-0 leading-relaxed mt-4">
+                From Austin Weaver — attorney, business leader, and founder of The Scoreboard Collective, a platform helping athletes, entertainers, and entrepreneurs build with strategy and purpose.
+              </p>
+
+              {/* Opt-in helper */}
+              <p className="text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mt-4">
+                Join with your email to get a special launch discount and exclusive content.
+              </p>
+
+              <div className="pt-4 space-y-6">
+                {/* Signup + Secondary CTA row */}
+                <div className="w-full max-w-xl mx-auto flex flex-col sm:flex-row gap-2 items-stretch">
+                  <div className="flex-1">
+                    <EmailSignup />
+                  </div>
+                  <div className="w-auto">
+                    <Button
+                      variant="outline"
+                      className="border-2 border-white text-white hover:bg-white hover:text-black font-bold h-10 px-4 text-sm whitespace-nowrap"
+                      asChild
+                    >
+                      <a href="https://www.scoreboardcollective.com" target="_blank" rel="noopener noreferrer">
+                        Submit
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Primary Buy Button */}
+                <div className="w-full max-w-xl mx-auto">
                   <Button
-                    size="lg"
-                    className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-6 text-xl shadow-xl rounded-lg transition-all duration-300 transform hover:scale-105"
+                    className="bg-brand-red hover:bg-red-700 text-white font-bold w-full shadow-xl rounded-lg transition-all duration-300 transform hover:scale-105"
                     asChild
                   >
                     <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
-                      Buy on Amazon
+                      Buy the Book on Amazon
                     </a>
                   </Button>
                 </div>
@@ -91,12 +119,8 @@ const Index = () => {
               <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-brand-red" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Strategic Framework
-              </h3>
-              <p className="text-gray-600">
-                Learn the proven systems and strategies that transform talent into sustainable business success.
-              </p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Winning Strategy</h3>
+              <p className="text-gray-600">Learn proven systems and structures that transform talent into sustainable business success.</p>
             </div>
 
             <div className="text-center p-6">
@@ -106,32 +130,28 @@ const Index = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Practical Tools
               </h3>
-              <p className="text-gray-600">
-                Get actionable advice and real-world tools you can implement immediately to advance your career.
-              </p>
+              <p className="text-gray-600">Get actionable advice and real-world tools you can implement immediately to advance your career.</p>
             </div>
 
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-brand-red" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Winning Mindset
-              </h3>
-              <p className="text-gray-600">
-                Develop the competitive edge and business acumen to navigate opportunities and maximize your value.
-              </p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Leadership & Longevity</h3>
+              <p className="text-gray-600">Develop the mindset and business acumen to navigate opportunities and build lasting value.</p>
             </div>
           </div>
 
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Whether you're an athlete building your brand, a creator monetizing your platform, or an entrepreneur launching your venture, 
-              <span className="font-bold text-gray-900"> Get on the Scoreboard</span> provides the playbook you need to turn your talent into tangible results.
+              Whether you’re an athlete building your brand, a creator monetizing your platform, or an entrepreneur launching your venture, <em>Get on the Scoreboard</em> equips you with the tools, structure, and strategy to turn potential into long-term success.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              This book breaks down the complex world of business, legal strategy, and personal branding into clear, actionable steps that empower you to take control of your career and build lasting success.
+              Written by attorney and business leader <strong>Austin Weaver</strong>, founder of <strong>The Scoreboard Collective</strong>, this book breaks down the business, legal, and strategic play needed to build a career that lasts.
             </p>
+            <div className="mt-6">
+              <a href="#" className="text-brand-red underline">See What’s Inside the Book</a>
+            </div>
           </div>
         </div>
       </section>
@@ -155,14 +175,15 @@ const Index = () => {
             </div>
 
             <div className="lg:col-span-2 space-y-6">
-              <h3 className="text-3xl font-bold text-gray-900">
-                Austin Weaver
-              </h3>
+              <h3 className="text-3xl font-bold text-gray-900">Austin Weaver</h3>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Austin Weaver is the founder of Scoreboard Strategy, a firm dedicated to helping athletes, entertainers, and entrepreneurs navigate the intersection of talent and business. As an attorney, agent, and strategic advisor, Austin has spent his career helping clients turn their unique abilities into sustainable competitive advantages.
+                Austin Weaver is the founder of <strong>The Scoreboard Collective</strong>, a multidisciplinary firm helping athletes, entertainers, and entrepreneurs align strategy, law, and leadership for lasting success.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                With experience in sports law, business operations, and strategic representation, Austin brings a comprehensive approach to career development and business building. His mission is to eliminate the barriers between talent and opportunity, ensuring that those with the drive to succeed have the tools and guidance they need to win.
+                As an attorney, business leader, and strategic advisor, Austin combines legal insight with real-world strategy to help clients protect what they’ve built and create sustainable success.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                With experience spanning <strong>business law</strong>, operations, and leadership, Austin empowers professionals to bridge the gap between performance and business ownership. His mission is simple — to help others win where it matters most.
               </p>
             </div>
           </div>
@@ -172,23 +193,18 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Get on the <span className="text-brand-red">Scoreboard</span>?
-          </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Start your journey to turning talent into business success today.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Build Your Advantage?</h2>
+          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Start your journey to lasting business success today.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-6 text-xl shadow-xl rounded-lg transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
-                Order Your Copy
-              </a>
+              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">Get the Book and Start Winning</a>
             </Button>
           </div>
+          <p className="text-xs text-gray-400 mt-6">From Austin Weaver and The Scoreboard Collective — helping you build smarter, stronger, and more sustainable success.</p>
         </div>
       </section>
     </div>
