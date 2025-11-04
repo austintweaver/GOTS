@@ -105,25 +105,25 @@ const Index = () => {
       </section>
 
       {/* About the Book Section */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
               About the <span className="text-brand-red">Book</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div className="text-center p-4">
+              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-3">
                 <BookOpen className="h-8 w-8 text-brand-red" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Winning Strategy</h3>
               <p className="text-gray-600">Learn proven systems and structures that transform talent into sustainable business success.</p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-4">
+              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Target className="h-8 w-8 text-brand-red" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -132,8 +132,8 @@ const Index = () => {
               <p className="text-gray-600">Get actionable advice and real-world tools you can implement immediately to advance your career.</p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-4">
+              <div className="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Award className="h-8 w-8 text-brand-red" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Leadership & Longevity</h3>
@@ -142,14 +142,14 @@ const Index = () => {
           </div>
 
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Whether you’re an athlete building your brand, a creator monetizing your platform, or an entrepreneur launching your venture, <em>Get on the Scoreboard</em> equips you with the tools, structure, and strategy to turn potential into long-term success.
+            <p className="text-lg text-gray-600 leading-relaxed mb-4">
+              Whether you're an athlete building your brand, a creator monetizing your platform, or an entrepreneur launching your venture, <em>Get on the Scoreboard</em> equips you with the tools, structure, and strategy to turn potential into long-term success.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Written by attorney and business leader <strong>Austin Weaver</strong>, founder of <strong>The Scoreboard Collective</strong>, this book breaks down the business, legal, and strategic play needed to build a career that lasts.
             </p>
-            <div className="mt-6">
-              <a href="#" className="text-brand-red underline">See What’s Inside the Book</a>
+            <div className="mt-4">
+              <a href="#" className="text-brand-red underline">See What's Inside the Book</a>
             </div>
           </div>
         </div>
