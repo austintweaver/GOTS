@@ -31,11 +31,11 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-4 pt-1 text-center">
-        <p className="text-xs text-white mt-4 max-w-3xl mx-auto">
-            Scoreboard Strategy LLC is not a law firm and does not provide legal advice. This site is not intended as attorney advertising. Any legal services are provided independently by licensed attorneys through a separate engagement, and additional costs may apply. Clients are encouraged to consult with qualified legal counsel licensed in their jurisdiction for any legal matters.
+          <p className="text-xs text-white mt-4 max-w-3xl mx-auto">
+            Get on the Scoreboard is published by Scoreboard Strategy, LLC. The book and related content are for educational and informational purposes only and do not constitute legal advice. Scoreboard Strategy, LLC and the Scoreboard Collective are not law firms, and this site is not attorney advertising. Any legal services are provided separately by licensed attorneys through independent engagement.
           </p>
           <p className="text-xs text-white mt-4 max-w-3xl mx-auto">
-            © 2025 Scoreboard Strategy. All rights reserved.
+            © 2025 Scoreboard Strategy, LLC. All rights reserved.
           </p>
   
         </div>

@@ -1,8 +1,15 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const TermsOfService = () => (
   <div className="min-h-screen pt-16 bg-white">
     <section className="max-w-3xl mx-auto px-4 py-16">
+      <div className="mb-6">
+        <Button className="bg-white text-black hover:bg-gray-100" asChild>
+          <Link to="/">← Back to Home</Link>
+        </Button>
+      </div>
       <h1 className="text-4xl font-heading font-bold mb-6 text-brand-red">Terms of Service</h1>
       <p className="text-gray-600 mb-6">Effective Date: July 10, 2025</p>
       <p className="mb-6 text-gray-700">These Terms of Service (“Terms”) govern your access to and use of the website operated by Scoreboard Strategy, LLC (“Company,” “we,” or “us”). By accessing or using our website, you agree to be bound by these Terms and our Privacy Policy.</p>

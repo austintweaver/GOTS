@@ -1,8 +1,15 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => (
   <div className="min-h-screen pt-16 bg-white">
     <section className="max-w-3xl mx-auto px-4 py-16">
+      <div className="mb-6">
+        <Button className="bg-white text-black hover:bg-gray-100" asChild>
+          <Link to="/">← Back to Home</Link>
+        </Button>
+      </div>
       <h1 className="text-4xl font-heading font-bold mb-6 text-brand-red">Privacy Policy</h1>
       <p className="text-gray-600 mb-2">Effective Date: 7/10/2025</p>
       <p className="text-gray-600 mb-6">Last Updated: 7/10/2025</p>

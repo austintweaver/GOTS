@@ -1,6 +1,6 @@
 import { BookOpen, Award, Target, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import bookCover from "@/assets/book-cover.jpg";
+import bookCover from "@/assets/GOTS Cover (1600 x 2560 px).svg";
 import { useState, useEffect } from "react";
 import { EmailSignup } from "@/components/EmailSignup";
 
@@ -61,17 +61,17 @@ const Index = () => {
 
               {/* Credibility line */}
               <p className="text-gray-300/90 italic max-w-3xl mx-auto lg:mx-0 leading-relaxed mt-4">
-                From Austin Weaver — attorney, business leader, and founder of The Scoreboard Collective, a platform helping athletes, entertainers, and entrepreneurs build with strategy and purpose.
+                From Austin Weaver — attorney, business leader, and founder of the Scoreboard Collective, a platform helping athletes, entertainers, and entrepreneurs build with strategy and purpose.
               </p>
 
               {/* Opt-in helper */}
               <p className="text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mt-4">
-                Join with your email to get a special launch discount and exclusive content.
+                Join with your email to get a special launch discount and exclusive future content.
               </p>
 
               <div className="pt-4 space-y-6">
                 {/* Signup + Secondary CTA row */}
-                <div className="w-full max-w-xl mx-auto flex flex-col sm:flex-row gap-2 items-stretch">
+                <div className="w-full max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row gap-2 items-stretch">
                   <div className="flex-1">
                     <EmailSignup />
                   </div>
@@ -88,7 +88,7 @@ const Index = () => {
                 </div>
 
                 {/* Primary Buy Button */}
-                <div className="w-full max-w-xl mx-auto">
+                <div className="w-full max-w-xl mx-auto lg:mx-0">
                   <Button
                     className="bg-brand-red hover:bg-red-700 text-white font-bold w-full shadow-xl rounded-lg transition-all duration-300 transform hover:scale-105"
                     asChild
@@ -145,12 +145,6 @@ const Index = () => {
             <p className="text-lg text-gray-600 leading-relaxed mb-4">
               Whether you're an athlete building your brand, a creator monetizing your platform, or an entrepreneur launching your venture, <em>Get on the Scoreboard</em> equips you with the tools, structure, and strategy to turn potential into long-term success.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Written by attorney and business leader <strong>Austin Weaver</strong>, founder of <strong>The Scoreboard Collective</strong>, this book breaks down the business, legal, and strategic play needed to build a career that lasts.
-            </p>
-            <div className="mt-4">
-              <a href="#" className="text-brand-red underline">See What's Inside the Book</a>
-            </div>
           </div>
         </div>
       </section>
@@ -164,8 +158,8 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-            <div className="flex justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <div className="flex justify-center lg:justify-start">
               <img
                 src="/assets/weaver-headshot.jpeg"
                 alt="Austin Weaver"
@@ -174,15 +168,14 @@ const Index = () => {
             </div>
 
             <div className="lg:col-span-2 space-y-6">
-              <h3 className="text-3xl font-bold text-gray-900">Austin Weaver</h3>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Austin Weaver is the founder of <strong>The Scoreboard Collective</strong>, a multidisciplinary firm helping athletes, entertainers, and entrepreneurs align strategy, law, and leadership for lasting success.
+                Austin Weaver is the founder of the Scoreboard Collective, a multidisciplinary firm helping athletes, entertainers, and entrepreneurs align strategy, law, and leadership for lasting success.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 As an attorney, business leader, and strategic advisor, Austin combines legal insight with real-world strategy to help clients protect what they’ve built and create sustainable success.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                With experience spanning <strong>business law</strong>, operations, and leadership, Austin empowers professionals to bridge the gap between performance and business ownership. His mission is simple — to help others win where it matters most.
+                With experience spanning business law, operations, and leadership, Austin empowers professionals to bridge the gap between performance and business ownership. His mission is simple — to help others win where it matters most.
               </p>
             </div>
           </div>
@@ -192,18 +185,20 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Build Your Advantage?</h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Start your journey to lasting business success today.</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to <span className="text-brand-red">Win</span>
+            <br />
+            Where it <span className="text-brand-red">Matters Most</span>?
+          </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-6 text-xl shadow-xl rounded-lg transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">Get the Book and Start Winning</a>
+              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">Visit the Scoreboard Collective</a>
             </Button>
           </div>
-          <p className="text-xs text-gray-400 mt-6">From Austin Weaver and The Scoreboard Collective — helping you build smarter, stronger, and more sustainable success.</p>
         </div>
       </section>
     </div>
