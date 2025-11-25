@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Social Icons Only, centered and larger */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 flex justify-center items-center w-full md:w-auto md:absolute-none md:top-auto md:left-auto md:transform-none h-20">
             <div className="flex space-x-8 justify-center w-full">
-              <a href="https://www.facebook.com/profile.php?id=61578784460129" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Facebook className="h-8 w-8" /></a>
-              <a href="https://www.linkedin.com/company/scoreboard-strategy/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Linkedin className="h-8 w-8" /></a>
-              <a href="https://www.instagram.com/scoreboardstrategy/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Instagram className="h-8 w-8" /></a>
+              <a href="https://www.facebook.com/scoreboardcollective" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Facebook className="h-8 w-8" /></a>
+              <a href="https://www.linkedin.com/company/scoreboardcollective/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Linkedin className="h-8 w-8" /></a>
+              <a href="https://www.instagram.com/scoreboardcollective/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors duration-200"><Instagram className="h-8 w-8" /></a>
             </div>
           </div>
 
