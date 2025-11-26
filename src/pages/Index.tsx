@@ -33,7 +33,7 @@ const Index = () => {
       )}
       {/* Hero Section with Book Cover */}
       <section
-        className="relative min-h-screen flex items-center justify-center bg-black bg-cover bg-center overflow-x-hidden py-20"
+        className="relative min-h-screen flex items-start justify-center bg-black bg-cover bg-center overflow-x-hidden pt-12 pb-16"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/scoreboardhome.jpg')`
         }}
@@ -50,7 +50,7 @@ const Index = () => {
             </div>
 
             {/* Book Info */}
-            <div className="text-center lg:text-left space-y-6">
+            <div className="text-center lg:text-left space-y-4">
               <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
                 <span className="text-brand-red">Win.</span> <span className="text-white">Where It Matters Most.</span>
               </h1>
@@ -60,35 +60,23 @@ const Index = () => {
               </p>
 
               {/* Credibility line */}
-              <p className="text-gray-300/90 italic max-w-3xl mx-auto lg:mx-0 leading-relaxed mt-4">
+              <p className="text-gray-300/90 italic max-w-3xl mx-auto lg:mx-0 leading-relaxed mt-2">
                 From Austin Weaver — attorney, business leader, and founder of the Scoreboard Collective, a platform helping athletes, entertainers, and entrepreneurs build with strategy and purpose.
               </p>
 
               {/* Opt-in helper */}
-              <p className="text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mt-4">
+              <p className="text-gray-300 max-w-lg mx-auto lg:mx-0 leading-relaxed mt-4">
                 Join with your email to get a special launch discount and exclusive future content.
               </p>
 
-              <div className="pt-4 space-y-6">
-                {/* Signup + Secondary CTA row */}
-                <div className="w-full max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row gap-2 items-stretch">
-                  <div className="flex-1">
-                    <EmailSignup />
-                  </div>
-                  <div className="w-auto">
-                    <Button
-                      className="bg-white text-black hover:bg-gray-100 font-bold h-10 px-4 text-sm whitespace-nowrap"
-                      asChild
-                    >
-                      <a href="https://www.scoreboardcollective.com" target="_blank" rel="noopener noreferrer">
-                        Submit
-                      </a>
-                    </Button>
-                  </div>
+              <div className="pt-0 space-y-2 max-w-lg mx-auto lg:mx-0 w-full">
+                {/* Signup row */}
+                <div className="w-full">
+                  <EmailSignup />
                 </div>
 
                 {/* Primary Buy Button */}
-                <div className="w-full max-w-xl mx-auto lg:mx-0">
+                <div className="w-full">
                   <Button
                     className="bg-brand-red hover:bg-red-700 text-white font-bold w-full shadow-xl rounded-lg transition-all duration-300 transform hover:scale-105"
                     asChild
