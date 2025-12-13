@@ -33,7 +33,7 @@ const Index = () => {
       )}
       {/* Hero Section with Book Cover */}
       <section
-        className="relative min-h-screen flex items-start lg:items-center justify-center bg-black bg-cover bg-center overflow-x-hidden pt-12 pb-16"
+        className="relative lg:min-h-screen flex items-start lg:items-center justify-center bg-black bg-cover bg-center overflow-x-hidden pt-8 pb-12 lg:pt-12 lg:pb-16"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/scoreboardhome.jpg')`
         }}
@@ -41,16 +41,16 @@ const Index = () => {
         <div className="z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Book Cover */}
-            <div className="flex justify-center lg:justify-end order-2 lg:order-1">
+            <div className="flex justify-center lg:justify-end">
               <img
                 src={bookCover}
                 alt="Get on the Scoreboard book cover"
-                className="w-auto max-w-xs sm:max-w-sm max-h-[60vh] shadow-2xl rounded-lg transform hover:scale-105 transition-transform duration-300 object-contain"
+                className="w-auto max-w-[60vw] sm:max-w-sm max-h-[40vh] shadow-2xl rounded-lg transform hover:scale-105 transition-transform duration-300 object-contain"
               />
             </div>
 
             {/* Book Info */}
-            <div className="text-center lg:text-left space-y-4 order-1 lg:order-2">
+            <div className="text-center lg:text-left space-y-4">
               <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
                 <span className="text-brand-red">Win.</span> <span className="text-white">Where It Matters Most.</span>
               </h1>
