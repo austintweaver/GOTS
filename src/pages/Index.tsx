@@ -45,7 +45,7 @@ const Index = () => {
               <img
                 src={bookCover}
                 alt="Get on the Scoreboard book cover"
-                className="w-auto max-w-[60vw] sm:max-w-sm max-h-[40vh] shadow-2xl rounded-lg transform hover:scale-105 transition-transform duration-300 object-contain"
+                className="w-auto max-w-[60vw] sm:max-w-sm lg:max-w-md xl:max-w-lg max-h-[40vh] lg:max-h-[60vh] shadow-2xl rounded-lg transform hover:scale-105 transition-transform duration-300 object-contain"
               />
             </div>
 
